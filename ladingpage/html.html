@@ -368,5 +368,40 @@ footer {
       <p>Siga-nos: @SalveBonjourConfeitaria</p> 
     </footer>
   </main>
+  <script>
+    
+    const formulario = document.querySelector('.contact-form');
+    
+    formulario.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        
+        const nome = this.querySelector('input[type="text"]').value;
+        
+        alert('Obrigado, ' + nome + '! Sua mensagem foi enviada com sucesso para os desenvolvedores.');
+        
+        this.reset(); 
+    });
+
+    const botoesDownload = document.querySelectorAll('.btn-contato, .btn-principal');
+    
+    botoesDownload.forEach(botao => {
+        botao.addEventListener('click', function(e) {
+            alert('Iniciando o download do sistema Salve Bonjour...');
+        });
+    });
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.hash !== "") {
+                e.preventDefault();
+                const target = document.querySelector(this.hash);
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+  </script>
+</body>
 </body>
 </html>
